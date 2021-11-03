@@ -8,5 +8,5 @@ before_install:
 script:
   - docker run rmadan/docker-react npm run test -- --coverage
 
-language:
+language: 
   - generic

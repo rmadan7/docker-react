@@ -1,4 +1,6 @@
 sudo: required
+language: generic
+
 services:
   - docker
 
@@ -7,6 +9,3 @@ before_install:
 
 script:
   - docker run rmadan/docker-react npm run test -- --coverage
-
-language: 
-  - generic

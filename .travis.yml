@@ -9,3 +9,17 @@ before_install:
 
 script:
   - docker run -e CI=true rmadan/docker-react npm run test
+
+#Used to deploy to AWS
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "docker-react"
+  env: "Dockerreact-env"
+  bucket_name: "elasticbeanstalk-us-east-1-924595427279"
+  bucket_path: "docker-react"
+  on:
+    branch: master #Only pushes code when code is pushed to branch master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_key_id: 
+    secure: "$AWS_SECRET_KEY"
